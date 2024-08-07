@@ -3,7 +3,7 @@ node_modules/
 package_lock.json
 yarn.lock
 yarn-error.log
+dist/
 
 # General secrets / environment variables here
-# todo: A list of what is required needs to written
 .env
