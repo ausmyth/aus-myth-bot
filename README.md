@@ -1,30 +1,52 @@
 # Aus Myth Discord Bot
 
-https://discord.com/invite/ausmyth
+Join our Discord [here!](https://discord.com/invite/ausmyth)
 
-This bot is simply for running some clan specific scripts for now. In the future we could potentially replace some other bots with functionality here.
+This is a private bot, written in the public. This bot is currently used for running clan-specific scripts. Future plans include expanding functionality to replace some other bots.
 
 ## How to run
-1. `yarn install`
-2. `cp .env.example .env`
-3. Add your discord token to the environment
-3. `yarn start`
+
+#### Docker
+
+Documentation coming soon...
+
+#### Local
+
+1. **Install dependencies:**
+   ```sh
+   yarn install
+   ```
+2. **Create a local environment configuration:**
+   ```sh
+   cp .env.example .env
+   ```
+3. **Add your Discord token to the .env file.**
+4. **Build the project:**
+   ```sh
+   yarn build
+   ```
+5. **Start the bot:**
+   ```sh
+   yarn start
+   ```
 
 ## Slash commands
-1. /hello
-    - Returns a greeting
 
-## 
+1. /hello
+   - Returns a greeting
+2. /talalcheck
+   - Tells you if Talal recieved the Farming pet yet
+3. /diceroll [sides]
+   - Rolls a dice, optional sides, default is 6
 
 ## Todo
-[] Add everyone in discord to a sql db with any data we can to track
-[] Add in game usernames to a sql db `ingame_usernames`
-    - `username: string, rank: string, currently_ranked: bool, last modified: date, discord: string, prev_names: string[], note: string, ban_note: string[]`
-    - connect to google spreadsheet for admins to view
-    - slash commands to edit these via discord
-[] Add permissions for who may use which command
-[] Run activity checks on names that are currently ranked
-    - simple script to pull data from temple and check activity as we do now manually via competitions feature
-[] Add event/announcement posting slash command, so we can make the bot post messages for the admin team if needed
-    - needs to check the poster's permissions for the channel, should not be able to use the bot as a bypass
-    - slash commands for editing
+
+- Refactor outdated code written in the early stages of the project.
+- Implement database functionality to log bot actions.
+- Set up logging of bot actions to a specified channel.
+- Make `/message` command for sending messages from the bot.
+- Make reaction role messages.
+- Make rank up forms via bot.
+- Permissioned commands functionality.
+- Active check commands.
+- Create event sign-up messages (optional: roles, channel access, update role call message).
