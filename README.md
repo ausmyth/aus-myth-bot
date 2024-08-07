@@ -41,6 +41,8 @@ Documentation coming soon...
 
 ## Todo
 
+- Make all commands "Guild-specific" so commands update instantly.
+- Make start up logs more informative on what got loaded.
 - Refactor outdated code written in the early stages of the project.
 - Implement database functionality to log bot actions.
 - Set up logging of bot actions to a specified channel.
