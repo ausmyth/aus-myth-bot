@@ -9,7 +9,20 @@ export default (client: Client): void => {
   });
   // TODO ALEX: below move into a separate file
   client.on("messageCreate", async (msg) => {
-    if (msg.author.bot) return;
+    console.log(
+      `Message from ${msg.author.username} (bot: ${msg.author.bot}): ${msg.content}`
+    );
+
+    if (msg.author.bot) {
+      console.log("Ignoring bot message via first check");
+      return;
+    }
+
+    if (client.user && msg.author.id === client.user.id) {
+      console.log("Ignoring bot message via second check");
+      return;
+    }
+
     // if (msg.author.username == "Aus Myth") return;
     if (msg.author.username == "Talal")
       msg.react("<:talalcum:1107319395384041513>");
