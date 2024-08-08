@@ -8,6 +8,8 @@ const dataFilePath = path.join(__dirname, "../../data/cacheData.json");
 // Create a cache with a default TTL (Time to Live) of 1 hour and a check interval of 5 minutes
 const cache = new NodeCache({ stdTTL: 3600, checkperiod: 300 });
 
+// todo: this isnt reading from the docker data file afaik, it resets to 0 on gmCount on restart...
+
 // Ensure the file exists and load initial data
 function initializeCache() {
   if (existsSync(dataFilePath)) {

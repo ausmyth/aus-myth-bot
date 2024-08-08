@@ -48,7 +48,8 @@ client.on("ready", async () => {
     console.error("Error registering commands:", error);
   }
 
-  client.application?.commands.set(commands);
+  // todo: this registers globally which we dont really need.
+  // client.application?.commands.set(commands);
 });
 
 interactionCreate(client, commandHandler);

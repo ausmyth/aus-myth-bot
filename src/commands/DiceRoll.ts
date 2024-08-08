@@ -24,23 +24,28 @@ export const DiceRoll: Command = {
   run: async (client: Client, interaction: CommandInteraction) => {
     if (!interaction.isChatInputCommand()) return;
 
+    // Reply immediately or defer the reply
+    await interaction.deferReply();
+
     const sides = interaction.options.getInteger("sides") ?? DEFAULT_SIDES;
 
     if (sides < 2) {
-      await interaction.followUp(
+      await interaction.editReply(
         "Please provide a valid number of sides (at least 2)."
       );
       return;
     }
 
     if (sides > MAX_SIDES) {
-      await interaction.followUp(
+      await interaction.editReply(
         `The number of sides cannot exceed ${MAX_SIDES}.`
       );
       return;
     }
 
     const result = Math.floor(Math.random() * sides) + 1;
-    await interaction.followUp(`You rolled a ${result}!`);
+    await interaction.editReply(
+      `You rolled a ${result} on a ${sides} sided die.`
+    );
   },
 };

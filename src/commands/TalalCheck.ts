@@ -8,16 +8,9 @@ export const TalalCheck: Command = {
   run: async (client: Client, interaction: CommandInteraction) => {
     const content = "Talal still does NOT have the farming pet.";
 
-    // Ensure the interaction is replied to in time
+    // Send a visible reply to everyone
     await interaction.reply({
-      ephemeral: true,
       content,
-    });
-    // If you want to send a follow-up message later, you can do so.
-    // Ensure the interaction is already replied to or deferred.
-    await interaction.followUp({
-      ephemeral: true,
-      content: "Additional information here.",
     });
   },
 };
