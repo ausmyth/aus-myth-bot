@@ -9,7 +9,7 @@ export default (client: Client): void => {
   });
   // TODO ALEX: below move into a separate file
   client.on("messageCreate", async (msg) => {
-    if (client.user && msg.author.id === client.user.id) return;
+    if (msg.author.bot) return;
     // if (msg.author.username == "Aus Myth") return;
     if (msg.author.username == "Talal")
       msg.react("<:talalcum:1107319395384041513>");
