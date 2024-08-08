@@ -1,0 +1,53 @@
+#0 building with "default" instance using docker driver
+
+#1 [bot internal] load build definition from Dockerfile
+#1 transferring dockerfile: 436B done
+#1 DONE 0.0s
+
+#2 [bot internal] load metadata for docker.io/library/node:20
+#2 DONE 0.9s
+
+#3 [bot internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [bot 1/6] FROM docker.io/library/node:20@sha256:1ae9ba874435551280e95c8a8e74adf8a48d72b564bf9dfe4718231f2144c88f
+#4 DONE 0.0s
+
+#5 [bot 2/6] WORKDIR /usr/src/app
+#5 CACHED
+
+#6 [bot internal] load build context
+#6 transferring context: 272.72kB 0.1s done
+#6 DONE 0.2s
+
+#7 [bot 3/6] COPY package.json yarn.lock ./
+#7 DONE 0.0s
+
+#8 [bot 4/6] RUN yarn install
+#8 0.468 yarn install v1.22.22
+#8 0.530 [1/4] Resolving packages...
+#8 0.614 [2/4] Fetching packages...
+#8 6.738 [3/4] Linking dependencies...
+#8 7.186 [4/4] Building fresh packages...
+#8 7.191 Done in 6.73s.
+#8 DONE 7.3s
+
+#9 [bot 5/6] COPY . .
+#9 DONE 0.4s
+
+#10 [bot 6/6] RUN yarn build
+#10 0.324 yarn run v1.22.22
+#10 0.342 $ tsc
+#10 1.885 Done in 1.56s.
+#10 DONE 1.9s
+
+#11 [bot] exporting to image
+#11 exporting layers
+#11 exporting layers 1.1s done
+#11 writing image sha256:83d5d64b075e8b65196e1cdc5ea38551b65d1a2b04a29f31a0f2c09862d66795 done
+#11 naming to docker.io/library/ausmyth-bot done
+#11 DONE 1.2s
+
+#12 [bot] resolving provenance for metadata file
+#12 DONE 0.0s

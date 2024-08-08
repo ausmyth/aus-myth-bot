@@ -3,8 +3,11 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+// todo: remove duplicate code
+// todo: panic on not finding env vars
 export const CONFIG = {
   discordToken: process.env.DISCORD_TOKEN,
+  guildId: process.env.GUILD_ID,
   dbHost: process.env.DB_HOST,
   dbUser: process.env.DB_USER,
   dbPass: process.env.DB_PASS,

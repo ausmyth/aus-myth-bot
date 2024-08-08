@@ -5,6 +5,8 @@ import { loadCommands } from "./utils/commandLoader";
 import { CommandHandler } from "./commands/CommandHandler";
 import { CONFIG } from "./config";
 import messageCreate from "./listeners/messageCreate";
+import { REST } from "@discordjs/rest";
+import { Routes } from "discord-api-types/v9";
 
 console.log("Bot is starting...");
 
@@ -20,12 +22,32 @@ const client = new Client({
 });
 
 const commands = loadCommands();
+console.log(`Loaded commands: ${commands.map((cmd) => cmd.name).join(", ")}`);
 const commandHandler = new CommandHandler(commands);
 
-// ready(client);
-
-client.on("ready", () => {
+client.on("ready", async () => {
   console.log(`Logged in as ${client.user?.tag}!`);
+  const rest = new REST({ version: "9" }).setToken(
+    CONFIG.discordToken as string
+  );
+
+  try {
+    console.log("Registering commands...");
+
+    const clientId = client.user!.id;
+
+    await rest.put(
+      Routes.applicationGuildCommands(clientId, CONFIG.guildId as string),
+      {
+        body: commands,
+      }
+    );
+
+    console.log("Commands registered successfully.");
+  } catch (error) {
+    console.error("Error registering commands:", error);
+  }
+
   client.application?.commands.set(commands);
 });
 
