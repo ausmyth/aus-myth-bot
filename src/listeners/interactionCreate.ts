@@ -31,7 +31,7 @@ export default (client: Client): void => {
     if (msg.content === "gm") {
       //&& msg.author.username == 'Bean') {
       console.log(`${msg.author.username} posted a gm`);
-      msg.reply("gm????");
+      msg.reply("gm");
     }
     if (msg.content === "gn") {
       //&& msg.author.username == 'Bean') {
