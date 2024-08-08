@@ -1,16 +1,15 @@
 import { CommandInteraction, Client } from "discord.js";
-import { Command } from "../Command";
+import { Command } from "./Command";
 
-export const TalalCheck: Command = {
-    name: "talalcheck",
-    description: "Talal farming pet check!",
-    type: 1,
-    run: async (client: Client, interaction: CommandInteraction) => {
-        const content = "Talal still does NOT have the farming pet.";
+export class TalalCheckCommand implements Command {
+  name = "talalcheck";
+  description = "Talal farming pet check!";
 
-        await interaction.followUp({
-            ephemeral: true,
-            content
-        });
-    }
-};
+  async run(client: Client, interaction: CommandInteraction) {
+    const content = "Talal still does NOT have the farming pet.";
+    await interaction.reply({
+      ephemeral: true,
+      content,
+    });
+  }
+}
