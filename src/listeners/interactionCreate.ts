@@ -9,10 +9,8 @@ export default (client: Client): void => {
   });
   // TODO ALEX: below move into a separate file
   client.on("messageCreate", async (msg) => {
-    //<:talalcum:1107319395384041513> <a:catVibe:807920662911909888>
-    // todo, refactor client set up so client is never null here via timing instantiation issues
-    if (!client.user || msg.author.id === client.user.id) msg.react("👀");
-    if (msg.author.username == "Aus Myth") return;
+    if (client.user && msg.author.id === client.user.id) return;
+    // if (msg.author.username == "Aus Myth") return;
     if (msg.author.username == "Talal")
       msg.react("<:talalcum:1107319395384041513>");
     if (msg.author.username.includes("Flaww"))
