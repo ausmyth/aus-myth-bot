@@ -8,7 +8,16 @@ This is a private bot, written in the public. This bot is currently used for run
 
 #### Docker
 
-Documentation coming soon...
+Documentation coming soon... (Not added docker-compose.yml yet)
+
+- **Rebuild and restart image:**
+  ```sh
+  sudo docker compose build bot && sudo docker compose up -d bot
+  ```
+- **Check bot logs from image:**
+  ```sh
+  sudo docker compose logs bot
+  ```
 
 #### Local
 
@@ -52,3 +61,5 @@ Documentation coming soon...
 - Permissioned commands functionality.
 - Active check commands.
 - Create event sign-up messages (optional: roles, channel access, update role call message).
+- Bot metrics and panic @mod messages when server is not healthy.
+- Move hosting vps to a cheaper / aus company.
