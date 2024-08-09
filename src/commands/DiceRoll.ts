@@ -3,7 +3,7 @@ import {
   Client,
   ApplicationCommandOptionType,
 } from "discord.js";
-import { Command } from "./Command";
+import { Command } from "../types/Command";
 
 const MAX_SIDES = 1000; // Hardcoded maximum number of sides
 const DEFAULT_SIDES = 6; // Default number of sides if not specified

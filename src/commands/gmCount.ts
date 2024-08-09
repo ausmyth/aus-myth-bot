@@ -1,6 +1,8 @@
 import { CommandInteraction, Client } from "discord.js";
-import { Command } from "./Command";
-import { cache } from "../utils/cacheManager";
+import { Command } from "../types/Command";
+import { persistentStore } from "../managers/PersistentStoreManager";
+
+// todo: make this a counter for the month only?
 
 export const GmCountCommand: Command = {
   name: "gmcount",
@@ -8,7 +10,7 @@ export const GmCountCommand: Command = {
   type: 1,
 
   run: async (client: Client, interaction: CommandInteraction) => {
-    const count = cache.get<number>("gmCount") || 0;
+    let count = persistentStore["gmCount"];
     await interaction.reply(`The "gm" count is: ${count}`);
   },
 };

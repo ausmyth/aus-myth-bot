@@ -1,5 +1,0 @@
- Container ausmyth-db-1  Running
- Container ausmyth-bot-1  Recreate
- Container ausmyth-bot-1  Recreated
- Container ausmyth-bot-1  Starting
- Container ausmyth-bot-1  Started

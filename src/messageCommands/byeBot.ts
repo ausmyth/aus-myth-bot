@@ -1,7 +1,13 @@
 import { Message } from "discord.js";
 
-export async function handleByeBot(message: Message) {
-  if (message.content.toLowerCase() === "bye bot") {
-    await message.react("🚪");
-  }
-}
+const trigger = "bye bot";
+
+export default {
+  name: "Bye Bot",
+  trigger,
+  run: async (message: Message): Promise<void> => {
+    if (message.content.toLowerCase() === trigger) {
+      await message.react("🚪");
+    }
+  },
+};

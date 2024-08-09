@@ -29,7 +29,7 @@ Documentation coming soon... (Not added docker-compose.yml yet)
    ```sh
    cp .env.example .env
    ```
-3. **Add your Discord token to the .env file.**
+3. **Edit the .env file.**
 4. **Build the project:**
    ```sh
    yarn build
@@ -41,12 +41,19 @@ Documentation coming soon... (Not added docker-compose.yml yet)
 
 ## Slash commands
 
-1. /hello
-   - Returns a greeting
-2. /talalcheck
+1. /talalcheck
    - Tells you if Talal recieved the Farming pet yet
-3. /diceroll [sides]
+2. /diceroll [sides]
    - Rolls a dice, optional sides, default is 6
+
+... Not including all as development is fast atm.
+
+## Bugs
+
+- Seem to be double registering commands - showing twice in discord.
+- Caching manager is not fully confident.
+- The docker-compose.yml used to test and run this, isnt in this repo. Because cache is kept on a directory level "up", this might fail local testing.
+- Env vars being imported is no longer using dotenv, so user needs to ensure these are imported on run, this should be fixed with a check on startup to optionally attempt to import them.
 
 ## Todo
 
@@ -63,3 +70,4 @@ Documentation coming soon... (Not added docker-compose.yml yet)
 - Create event sign-up messages (optional: roles, channel access, update role call message).
 - Bot metrics and panic @mod messages when server is not healthy.
 - Move hosting vps to a cheaper / aus company.
+- Make metrics across managers all use a singular metrics class
