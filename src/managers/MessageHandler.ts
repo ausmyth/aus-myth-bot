@@ -1,4 +1,3 @@
-// src/managers/MessageHandler.ts
 import { Message } from "discord.js";
 import { readdirSync } from "fs";
 import path from "path";
