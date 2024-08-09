@@ -1,29 +1,38 @@
-import { Client, ClientOptions, IntentsBitField, GatewayIntentBits } from "discord.js";
-import interactionCreate from "./listeners/interactionCreate";
-import ready from "./listeners/ready";
+import { Client, IntentsBitField, GatewayIntentBits } from "discord.js";
+import { CONFIG } from "./utils/config";
+import { CommandManager } from "./managers/CommandManager";
+import { MessageHandler } from "./managers/MessageHandler";
+import { GuildMemberUpdateHandlerManager } from "./managers/GuildMemberUpdateHandler";
+import { setupListeners } from "./managers/setupListeners";
+import Database from "./db/database";
 
-// Grab the secrets
-import dotenv from "dotenv"
-dotenv.config();
+async function startBot() {
+  console.log("Bot is starting...");
 
-const token = process.env.DISCORD_TOKEN
+  try {
+    await Database.initialize();
 
-console.log("Bot is starting...");
-
-const client = new Client({
-    // intents: []
-    // intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]
-    intents: [
+    const client = new Client({
+      intents: [
         IntentsBitField.Flags.Guilds,
         IntentsBitField.Flags.GuildMessages,
         IntentsBitField.Flags.MessageContent,
         GatewayIntentBits.MessageContent,
         GatewayIntentBits.GuildMembers,
-        IntentsBitField.Flags.GuildMembers
-    ]
-});
+        IntentsBitField.Flags.GuildMembers,
+      ],
+    });
 
-ready(client);
-interactionCreate(client);
+    const commandManager = new CommandManager();
+    const messageHandler = new MessageHandler();
+    const memberUpdateHandler = new GuildMemberUpdateHandlerManager();
 
-client.login(token);
+    setupListeners(client, commandManager, messageHandler, memberUpdateHandler);
+
+    await client.login(CONFIG.discordToken);
+  } catch (error) {
+    console.error("Failed to start the bot:", error);
+  }
+}
+
+startBot();

@@ -16,9 +16,5 @@ COPY . .
 # Compile TypeScript to JavaScript
 RUN yarn build
 
-# Expose the port your app runs on (if applicable)
-# EXPOSE 3000
-
 # Command to run your application
-# CMD ["yarn", "start"]
 CMD ["node", "dist/Bot.js"]
