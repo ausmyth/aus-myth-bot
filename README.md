@@ -71,3 +71,4 @@ Documentation coming soon... (Not added docker-compose.yml yet)
 - Bot metrics and panic @mod messages when server is not healthy.
 - Move hosting vps to a cheaper / aus company.
 - Make metrics across managers all use a singular metrics class
+- The gm counter tracks any word with gm inside of it, need a better regex lol
